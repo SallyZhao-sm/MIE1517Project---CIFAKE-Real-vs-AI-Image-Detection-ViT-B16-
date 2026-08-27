@@ -1,35 +1,46 @@
-# CIFAKE-Real-vs-AI-Image-Detection-ViT-B16
+# AI-Generated Image Detection with Vision Transformers
 
-# Detecting AI Generated Images with Vision Transformers (CIFAKE)
+## Overview
 
-This is our MIE1517 final project. We trained an image classifier to detect whether a 32x32 image is a real CIFAR 10 photo or an AI generated synthetic image, using the CIFAKE dataset.
+This project fine-tunes a pretrained Vision Transformer to distinguish real CIFAR-10 images from synthetic images generated with Stable Diffusion. The model is trained on the CIFAKE dataset as a binary image classifier.
 
 ## Dataset
-CIFAKE (Kaggle):
-- 120,000 images total (32x32 RGB)
-- 60,000 real images from CIFAR 10
-- 60,000 fake images generated with Stable Diffusion v1.4
-- Labels: 0 = real, 1 = fake
 
-## Approach
-- Transfer learning with a pre trained Vision Transformer (ViT B 16) from torchvision
-- Replaced the classification head for binary prediction
-- Trained and tuned hyperparameters to improve validation accuracy and generalization
+CIFAKE contains 120,000 RGB images at 32 × 32 resolution:
 
-## Results
-Best model performance on a held out test set:
-- Accuracy: ~96 to 97 percent
-- Precision: 96.8 percent
-- Recall: 96.4 percent
-- F1: 96.6 percent
+- 60,000 real images from CIFAR-10
+- 60,000 synthetic images generated with Stable Diffusion v1.4
+- Binary labels: real and AI-generated
 
-## Tech stack
-Python, PyTorch, torchvision, NumPy, pandas, scikit learn, matplotlib
+## Methodology
 
-## How to run
-1. Install dependencies (PyTorch and common Python data libraries)
-2. Download CIFAKE from Kaggle
-3. Run the notebook from top to bottom: load data, preprocess, train, evaluate
+- Loaded a pretrained ViT-B/16 model from torchvision
+- Replaced the original classification head for binary prediction
+- Resized and normalized images for the pretrained architecture
+- Fine-tuned model and training hyperparameters
+- Evaluated generalization on a held-out test set
 
-## Authors
+## Key Results
+
+The best model achieved approximately:
+
+- Accuracy: 96–97%
+- Precision: 96.8%
+- Recall: 96.4%
+- F1 score: 96.6%
+
+These results show that transfer learning with a Vision Transformer can effectively identify synthetic images in the CIFAKE dataset.
+
+## Technologies
+
+Python, PyTorch, torchvision, Vision Transformer, NumPy, pandas, scikit-learn, matplotlib
+
+## How to Run
+
+1. Download the CIFAKE dataset from Kaggle.
+2. Install PyTorch and the required Python data libraries.
+3. Open the notebook and run the data-loading, preprocessing, training, and evaluation sections in order.
+
+## Contributors
+
 Lawrence Han, Sally Zhao, Max Li, Xi Chen
