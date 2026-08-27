@@ -1,4 +1,4 @@
-# MIE1517Project---CIFAKE-Real-vs-AI-Image-Detection-ViT-B16-
+# CIFAKE-Real-vs-AI-Image-Detection-ViT-B16
 
 # Detecting AI Generated Images with Vision Transformers (CIFAKE)
 
